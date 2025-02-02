@@ -33,7 +33,7 @@ const Hero = memo(() => {
         </div>
         <div className="relative hidden md:block">
           <img 
-            src="/lovable-uploads/a7417638-2576-4a54-8af4-bf44068f322d.png" 
+            src="/clean-uploads/a7417638-2576-4a54-8af4-bf44068f322d.png" 
             alt="Professional cleaning service illustration"
             className="w-full h-auto animate-fadeIn rounded-lg shadow-xl"
             style={{ animationDelay: "0.6s" }}

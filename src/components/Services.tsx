@@ -20,7 +20,7 @@ const services = [
       "Post construction",
       "Laundry"
     ],
-    image: "/lovable-uploads/ff835e31-cc54-4936-9215-dfddf4c9bd14.png"
+    image: "/clean-uploads/ff835e31-cc54-4936-9215-dfddf4c9bd14.png"
   },
   {
     title: "Airbnb",
@@ -36,7 +36,7 @@ const services = [
       "Dishes",
       "Etc."
     ],
-    image: "/lovable-uploads/9eb92f3c-c593-4b98-9383-f54b2d6d9c6f.png"
+    image: "/clean-uploads/9eb92f3c-c593-4b98-9383-f54b2d6d9c6f.png"
   }
 ];
 

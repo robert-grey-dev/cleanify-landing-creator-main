@@ -1,5 +1,7 @@
 # Modern Cleaning Service Website
 
+![Preview](public/og-image.png)
+
 A professional website for a cleaning service company built with modern web technologies.
 
 ## 🚀 Tech Stack

@@ -2,6 +2,9 @@
 
 ![Preview](public/og-image.png)
 
+## 🌐 Live Demo
+👉 [Click here to view the live demo](https://cleanify-six.vercel.app/)
+
 A professional website for a cleaning service company built with modern web technologies.
 
 ## 🚀 Tech Stack

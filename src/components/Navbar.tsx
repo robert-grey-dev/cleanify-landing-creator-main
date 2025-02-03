@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Home, Info, Menu, X, ArrowRight, ChevronDown, Settings, DollarSign } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,9 +11,12 @@ import {
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +30,28 @@ const Navbar = () => {
     setIsOpen(false);
     setServicesOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen && 
+        mobileMenuRef.current && 
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <nav 
@@ -50,6 +75,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
+            ref={menuButtonRef}
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -136,6 +162,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         <div
+          ref={mobileMenuRef}
           id="mobile-menu"
           className={cn(
             "fixed inset-x-0 bottom-0 top-16 bg-white md:hidden transition-transform duration-300 ease-in-out shadow-lg",
